@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/zigzag-conversion/
-// Author : Hao Chen
-// Date   : 2014-07-17
+// Author : Fan Chou
+// Date   : 2014-10-27
 
 /********************************************************************************** 
 *

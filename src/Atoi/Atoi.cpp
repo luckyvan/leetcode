@@ -1,6 +1,6 @@
 // Source : https://oj.leetcode.com/problems/string-to-integer-atoi/
-// Author : Hao Chen
-// Date   : 2014-06-18
+// Author : Fan Chou
+// Date   : 2014-10-27
 
 /********************************************************************************** 
 *
