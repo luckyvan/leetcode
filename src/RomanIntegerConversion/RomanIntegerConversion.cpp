@@ -43,6 +43,13 @@ int romanCharToInt(char ch){
   return d;
 }
 
+static int divisors[] = {
+	1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 
+};
+static string roman_strings[] = {
+	"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"
+};
+
 int romanToInt(string s) {
   if (s.size()<=0) return 0;
   int result = romanCharToInt(s[0]);
@@ -59,3 +66,17 @@ int romanToInt(string s) {
   return result;
 }
 
+string intToRoman(int input) {
+	if (input > 3999)
+		return string("");
+
+	string result = "";
+	for (size_t index = 0; input != 0; index++)
+	{
+		while (input >= divisors[index]){
+			input -= divisors[index];
+			result += roman_strings[index];
+		}
+	}
+	return result;
+}

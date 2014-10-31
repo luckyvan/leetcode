@@ -28,4 +28,12 @@ void RomanIntegerConversionTest::testRomanToInteger()
    CPPUNIT_ASSERT_EQUAL(int(2014), romanToInt("MMXIV"));
 }
 
-
+void RomanIntegerConversionTest::testIntegerToRoman()
+{
+	CPPUNIT_ASSERT_EQUAL(string("II"), intToRoman(int(2)));
+	CPPUNIT_ASSERT_EQUAL(string("XIII"), intToRoman(int(13)));
+	CPPUNIT_ASSERT_EQUAL(string("XC"), intToRoman(int(90)));
+	CPPUNIT_ASSERT_EQUAL(string("MCMLIV"), intToRoman(int(1954)));
+	CPPUNIT_ASSERT_EQUAL(string("MCMXC"), intToRoman(int(1990)));
+	CPPUNIT_ASSERT_EQUAL(string("MMXIV"), intToRoman(int(2014)));
+}
