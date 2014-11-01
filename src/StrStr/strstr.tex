@@ -1,0 +1,88 @@
+%-*- coding: UTF-8 -*-
+% strStr.tex
+% string match
+\documentclass[UTF8]{ctexart}
+\usepackage{clrscode}
+
+\begin{document}
+\begin{codebox}
+\Procname{$\proc{NAIVE-STRING-MATCHER($T, P$)}$}
+\li $n \gets length[T]$
+\li $m \gets length[P]$
+\li \For $s \gets 0$ \To $n - m $
+\li 	\Do \If $P[1 \twodots m ] = T[s + 1 \twodots s + m]  $
+\li 		\Then print ''Pattern occurs with shift'' $s$
+       \End
+\end{codebox}
+
+
+\begin{codebox}
+\Procname{$\proc{FINITT-AUTOMATION-MATCHER($T, \delta, m$)}$}
+\li $n \gets length[T]$
+\li $q \gets 0$
+\li \For $1 \gets 1$ \To $n$
+\li 	\Do $q \gets \delta(q, T[i])$
+\li			\If $q = m$
+\li				\Then print ''Pattern occurs with shift'' $i - m$
+		\End
+\end{codebox}
+
+\begin{codebox}
+\Procname{$\proc{COMPUTE-TRANSITION-FUNCTION($P, \Sigma$)}$}
+\li $m \gets length[P]$
+\li \For $q \gets 0$ \To $m$
+\li 	\Do \For each charactor $a \in \Sigma$
+\li 		\Do $k$ $\gets$ min $(m + 1, q + 2)$
+\li 			\Repeat $k \gets k - 1$
+\li 				\Until $P_k \sqsupset P_qa$
+\li 			$\delta(q, a) \gets k$
+			\End
+		\End
+\li \Return $\delta$
+\end{codebox}
+
+\clearpage
+
+\begin{codebox}
+\Procname{$\proc{KMP-MATCHER(T,P)}$}
+\li $n \gets \id{length}[T]$
+\li $m \gets \id{length}[P]$
+\li $\Pi \gets \proc{COMPUTE-PREFIX-FUNCTION}(P)$
+\li $q \gets 0$\>\>\>\>\>\>\>\>\>\>\> \Comment Number of characters matched
+\li \For $i \gets 1$ \To $n$ \>\>\>\>\>\>\>\>\>\>\> \Comment 
+					Scan the next text from left to right
+\li 	\Do 
+			\While $q > 0$ and $P[q+1] \neq T[i]$
+\li 			\Do $q \gets \Pi[q]$ \>\>\>\>\>\> \Comment Next character does not match
+				\End
+\li 		\If $P[q+1] = T[i]$
+\li 			\Then $q \gets q + 1$ \>\>\>\>\>\>\>\Comment Next Character matches
+				\End
+\li 		\If $q = m$ \>\>\>\>\>\> \Comment Is alll of P matched?
+\li 			\Then 
+					print ``Pattern occurs with shift'' $i-m$
+\li 				$q \gets \Pi[q]$ \>\>\>\>\>\> \Comment Look for next match
+				\End
+		\End
+\end{codebox}
+
+\begin{codebox}
+\Procname{$\proc{COMPUTE-PREFIX-FUNCTION(P)}$}
+\li $m \gets length[P]$
+\li $\Pi[1] \gets 0$
+\li $k \gets 0$
+\li \For $q \gets 2$ \To $m$
+\li 	\Do 
+			\While $k > 0$ and $P[k+1] \neq P[q]$
+\li 			\Do $k \gets \Pi[k]$
+				\End
+\li 			\If $P[k+1] = P[q]$
+\li 				\Then $k \gets k+1$
+					\End
+\li 			$\Pi(q) \gets k$
+			\End
+		\End
+\li \Return $\Pi$
+\end{codebox}
+
+\end{document}
