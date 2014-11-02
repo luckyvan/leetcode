@@ -14,4 +14,5 @@ public:
 	char* strStr(char *haystack, char *needle);
 	vector<int> computePrefixFunction(char* patten); // helper function for KMP
 	char* strStr_kmp(char *haystack, char *needle);
+	int longestSubstringWithoutRepeatingCharacters(string s);
 };
