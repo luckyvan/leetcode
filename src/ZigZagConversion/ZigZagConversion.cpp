@@ -23,12 +23,10 @@
 *
 **********************************************************************************/
 
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
+#include "../Solution.h"
 
-string convert(string s, int nRows) {
+
+string Solution::convert(string s, int nRows) {
   int size = s.size();
   if (nRows<=1 || nRows>=size) return s;
 

@@ -4,6 +4,7 @@
 #define ATOI_H
 
 #include <cppunit/extensions/HelperMacros.h>
+#include "../src/Solution.h"
 
 class AtoiTest : public CPPUNIT_NS::TestFixture
 {
@@ -25,5 +26,8 @@ public:
    void testInvalidTail();
    void testNonConversion();
    void testBoundaries();
+private:
+	Solution solution;
+
 };
 #endif

@@ -33,14 +33,12 @@
 * is returned.
 *
 **********************************************************************************/
-
-#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <limits.h>
+#include "../Solution.h"
 
-
-int atoi(const char *s) {
+int Solution::atoi(const char *s) {
   if (s==NULL || *s=='\0')
   {
     return 0;
@@ -79,12 +77,12 @@ int atoi(const char *s) {
   {
     overflow = true;
   }else{
-    overflow = (sign == '-') ? (ret > (-((unsigned long)INT_MIN))) : (ret > INT_MAX);
+    overflow = (sign == '-') ? (ret > (abs(INT_MIN))) : (ret > INT_MAX);
   }
 
   if (overflow) return (sign == '-') ? INT_MIN : INT_MAX;
 
-  return sign == '-'? -ret : ret;
+  return sign == '-'? -(int(ret)) : ret;
 }
 
 

@@ -13,12 +13,9 @@
 *
 **********************************************************************************/
 
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
+#include "../Solution.h"
 
-bool isValid(string s) {
+bool Solution::isValid(string s) {
 
   vector<char> stack;
 

@@ -4,6 +4,7 @@
 #define VALIDPARENTHESES_H
 
 #include <cppunit/extensions/HelperMacros.h>
+#include "../src/Solution.h"
 
 class ValidParenthesesTest : public CPPUNIT_NS::TestFixture
 {
@@ -17,5 +18,7 @@ public:
    void tearDown();
 
    void testNormalCase();
+private:
+	Solution solution;
 };
 #endif

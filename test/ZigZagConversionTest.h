@@ -4,6 +4,7 @@
 #define ZIGZAGCONVERSIONTEST_H
 
 #include <cppunit/extensions/HelperMacros.h>
+#include "../src/Solution.h"
 
 class ZigZagConversionTest : public CPPUNIT_NS::TestFixture
 {
@@ -17,6 +18,9 @@ public:
    void tearDown();
 
    void testConversion();
+
+private:
+	Solution solution;
    //void test_$exception_func();
 };
 #endif

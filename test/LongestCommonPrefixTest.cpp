@@ -1,6 +1,5 @@
 
 #include <cppunit/config/SourcePrefix.h>
-#include "../src/LongestCommonPrefix/LongestCommonPrefix.cpp"
 #include <stdlib.h>
 #include <limits.h>
 #include "LongestCommonPrefixTest.h"
@@ -23,7 +22,7 @@ void LongestCommonPrefixTest::testNormalCase()
   string mystrings[] = {string("abc"), string("abdef"), string("abccc")};
   vector<string> strs (mystrings, mystrings + sizeof(mystrings)/sizeof(string));
 
-  CPPUNIT_ASSERT_EQUAL (string("ab"), longestCommonPrefix(strs));
+  CPPUNIT_ASSERT_EQUAL (string("ab"), solution.longestCommonPrefix(strs));
 }
 
 

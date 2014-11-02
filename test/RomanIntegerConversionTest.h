@@ -4,6 +4,7 @@
 #define ROMANINTEGERCONVERSION_H
 
 #include <cppunit/extensions/HelperMacros.h>
+#include "../src/Solution.h"
 
 class RomanIntegerConversionTest : public CPPUNIT_NS::TestFixture
 {
@@ -19,5 +20,8 @@ public:
 
    void testRomanToInteger();
    void testIntegerToRoman();
+private:
+	Solution solution;
+
 };
 #endif

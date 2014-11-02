@@ -8,14 +8,9 @@
 *
 *
 **********************************************************************************/
+#include "../Solution.h"
 
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
-
-
-string longestCommonPrefix(vector<string> &strs) {
+string Solution::longestCommonPrefix(vector<string> &strs) {
   string word;
   if (strs.size()<=0) return word;
 

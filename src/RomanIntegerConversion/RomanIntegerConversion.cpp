@@ -11,9 +11,7 @@
 * wiki: en.wikipedia.org/wiki/Roman_numerals
 **********************************************************************************/
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include "../Solution.h"
 
 int romanCharToInt(char ch){
   int d = 0;
@@ -50,7 +48,7 @@ static string roman_strings[] = {
 	"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"
 };
 
-int romanToInt(string s) {
+int Solution::romanToInt(string s) {
   if (s.size()<=0) return 0;
   int result = romanCharToInt(s[0]);
   for (int i=1; i<s.size(); i++){
@@ -66,7 +64,7 @@ int romanToInt(string s) {
   return result;
 }
 
-string intToRoman(int input) {
+string Solution::intToRoman(int input) {
 	if (input > 3999)
 		return string("");
 
