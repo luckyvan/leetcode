@@ -18,4 +18,5 @@ public:
 	bool isMatch(char *text, char*reg);  //regularExpressionMatching
 	bool matchStar(char c, char *reg, char *text);
 	string reverseWords(string& str);
+	vector<string> generateParentheses(int n);
 };
