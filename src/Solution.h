@@ -15,4 +15,6 @@ public:
 	vector<int> computePrefixFunction(char* patten); // helper function for KMP
 	char* strStr_kmp(char *haystack, char *needle);
 	int longestSubstringWithoutRepeatingCharacters(string s);
+	bool isMatch(char *text, char*reg);  //regularExpressionMatching
+	bool matchStar(char c, char* reg, char* text);
 };
