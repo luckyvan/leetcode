@@ -19,4 +19,6 @@ public:
 	bool matchStar(char c, char *reg, char *text);
 	string reverseWords(string& str);
 	vector<string> generateParentheses(int n);
+	bool isInterleave(string s1, string s2, string s3);
+	int longestValidParentheses(string s);
 };
