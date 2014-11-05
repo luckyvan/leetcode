@@ -1,0 +1,71 @@
+%-*- coding: UTF-8 -*-
+% DistinceSubsequences.tex
+% dynamic programming, string
+\documentclass[UTF8]{ctexart}
+\usepackage{clrscode}
+\usepackage{amsmath, mathtools}
+\usepackage{amsthm, enumitem}
+\usepackage{fancybox}
+
+\theoremstyle{remark}
+
+\begin{document}
+\newtheorem*{mydef}{Definition}
+\begin{mydef}
+A \emph{subsequence} of a string is a new string which is formed from the original string 
+by deleting some (can be none) of the characters without disturbing the relative positions 
+of the remaining characters. (ie, "ACE" is a subsequence of "ABCDE" while "AEC" is not).
+\end{mydef}
+
+\newcommand*{\lnwarrow}{
+  \leftarrow\llap{$\nwarrow$}
+}
+\newtheorem*{opt}{Optimal Substructure}
+\begin{opt}
+Let $X = \langle x_1, x_2, \dots, x_m \rangle$ be subsequence of $Y = \langle y_1, y_2, \dots, y_n \rangle$
+	\begin{enumerate}
+		\item if $x_m = y_n$, then $X_{m-1}$ is a subsequence of $Y_{n-1}$
+		\item if $x_m \neq y_n$, then $X$ is a subsequence of $Y_{n-1}$ 
+	\end{enumerate}
+\end{opt}
+
+\newtheorem*{recursive}{Recursive Formula}
+\begin{recursive}
+Let us define $c[i,j]$ to be the length of an \emph{longest common subsequence} of $X_i$ and $Y_j$.
+If either $i=0$ or $j=0$, one of the sequences has length 0, and so LCS has length 0. Finally, if $X_m$ is a subsequence of $Y_n$, $c[m,n] = m$.
+\begin{math}
+\\
+c[i,j] = 
+	\begin{cases}
+		0,& \text{if } i = 0 \text{ or } j = 0, \\
+		c[i-1, j-1], & \text{if } i,j > 0 \text{ and } x_i = y_j, \\
+		\text{max}(c[i, j-1], c[i-1, j]), & \text{if } i,j>0 \text{ and } x_i \neq y_j, 
+	\end{cases}
+\end{math}
+
+The following table illustracts the constructed $c[i,j]$ table with $X$ as \emph{``rabbit''} and $Y$ as \emph{``rabbbit''}. The arrows within will be used in the next section of reconstructing the common sequence.
+
+\begin{tabular}{rrrrrrrrrr}
+	 	& $j$	& 0	& 1	& 2	& 3	& 4	& 5	& 6	& 7	 \\ 	
+	$i$	& & $y_j$	& r	& a	& b	& b	& b	& i	& t	 \\ 	
+	$0$	& $x_i$	 & 0 & 0	& 0	& 0	& 0	& 0	& 0	& 0	 \\ 	
+	$1$	& r	& 0	&$\nwarrow$ 1	& 1	& 1	& 1	& 1	& 1	& 1	 \\ 	
+	$2$	& a	& 0	& 1	& $\nwarrow$2	&  $\leftarrow$ 2& 2		& 2	& 2	& 2	 \\ 	
+	$3$	& b & 0 & 1	& 2	&$\nwarrow$ 3	&$\lnwarrow$  3 & 3		& 3	& 3	 \\ 	
+	$4$	& b	& 0 & 1	& 2	& 3	&$\nwarrow$ 4	& $\lnwarrow$  4	&4	& 4	 \\ 	
+	$5$	& i	& 0 & 1	& 2	& 3	& 4	& 4				& $\nwarrow$ 5		& 5	 \\ 	
+	$6$	& t & 0 & 1	& 2	& 3	& 4	& 4	& 5								& $\nwarrow$ 6	 \\ 	
+
+\end{tabular}
+\end{recursive}
+
+\newtheorem*{recon}{Reconstruct Solution}
+\begin{recon}
+A distinct subsequence is a distince path from $c[m,n]$ to $c[0,0]$. For instance, in our case, 
+\begin{enumerate}
+	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [4, 4] \rightarrow [3, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$ 
+	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [3, 4] \rightarrow [3, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$
+	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [3, 4] \rightarrow [2, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$
+\end{enumerate}
+\end{recon}
+\end{document}

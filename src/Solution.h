@@ -21,4 +21,7 @@ public:
 	vector<string> generateParentheses(int n);
 	bool isInterleave(string s1, string s2, string s3);
 	int longestValidParentheses(string s);
+
+	/*DP*/
+	int distinctSubsequences(string S, string T);
 };
