@@ -24,3 +24,13 @@ void UniquePathsTest::testUniquePaths()
 
 }
 
+void UniquePathsTest::testUniquePathsWithObstacles()
+{
+	vector<vector<int>> obstacleGrid({
+		(vector<int>({ 0, 0, 0 })),
+		(vector<int>({ 0, 1, 0 })),
+		(vector<int>({ 0, 0, 0 }))
+	});
+
+	CPPUNIT_ASSERT_EQUAL(int(2), solution.uniquePathsWithObstacles(obstacleGrid));
+}

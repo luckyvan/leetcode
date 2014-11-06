@@ -25,4 +25,5 @@ public:
 	/*DP*/
 	int distinctSubsequences(string S, string T);
 	int uniquePaths(int m, int n);
+	int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid);
 };
