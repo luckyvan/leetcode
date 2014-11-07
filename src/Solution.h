@@ -27,6 +27,7 @@ public:
 	int uniquePaths(int m, int n);
 	int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid);
 	int maximamRectangle(vector<vector<int> >& matrix);
+	int maximumSubarray(int a[], size_t n);
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
