@@ -26,4 +26,8 @@ public:
 	int distinctSubsequences(string S, string T);
 	int uniquePaths(int m, int n);
 	int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid);
+	int maximamRectangle(vector<vector<int> >& matrix);
+
+	/*rectangle*/
+	int largestRectangleInHistogram(vector<int>& heights);
 };
