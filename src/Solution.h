@@ -28,6 +28,7 @@ public:
 	int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid);
 	int maximamRectangle(vector<vector<int> >& matrix);
 	int maximumSubarray(int a[], size_t n);
+	int minDistance(string word1, string word2);
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
