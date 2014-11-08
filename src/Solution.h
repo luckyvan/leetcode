@@ -29,6 +29,10 @@ public:
 	int maximamRectangle(vector<vector<int> >& matrix);
 	int maximumSubarray(int a[], size_t n);
 	int minDistance(string word1, string word2);
+	int maxProfit(vector<int>& prices);
+	int maxProfitWithMultipleTransactions(vector<int>& prices);
+	int maxProfitWithTwoTransactions(vector<int>& prices);
+	
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
