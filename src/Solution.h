@@ -32,6 +32,7 @@ public:
 	int maxProfit(vector<int>& prices);
 	int maxProfitWithMultipleTransactions(vector<int>& prices);
 	int maxProfitWithTwoTransactions(vector<int>& prices);
+	bool isScramble(string s1, string s2);
 	
 
 	/*rectangle*/
