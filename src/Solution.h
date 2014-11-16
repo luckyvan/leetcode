@@ -2,6 +2,14 @@
 #include <vector>
 using namespace std;
 
+
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 class Solution{
 public:
 	/* String */
@@ -33,7 +41,11 @@ public:
 	int maxProfitWithMultipleTransactions(vector<int>& prices);
 	int maxProfitWithTwoTransactions(vector<int>& prices);
 	bool isScramble(string s1, string s2);
-	
+
+	/*tree*/
+	vector<int> postorderTraversal(TreeNode *root);
+	vector<int> preorderTraversal(TreeNode *root);
+
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
