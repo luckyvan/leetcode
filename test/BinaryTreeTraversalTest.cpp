@@ -40,3 +40,17 @@ void BinaryTreeTraversalTest::testPreOrderTraversal()
 	CPPUNIT_ASSERT_EQUAL(int(2), solution.preorderTraversal(&root)[1]);
 	CPPUNIT_ASSERT_EQUAL(int(3), solution.preorderTraversal(&root)[2]);
 }
+
+
+void BinaryTreeTraversalTest::testInOrderTraversal()
+{
+	TreeNode leaf(3);
+	TreeNode middle(2);
+	TreeNode root(1);
+	root.right = &middle;
+	middle.left = &leaf;
+
+	CPPUNIT_ASSERT_EQUAL(int(1), solution.inorderTraversal(&root)[0]);
+	CPPUNIT_ASSERT_EQUAL(int(3), solution.inorderTraversal(&root)[1]);
+	CPPUNIT_ASSERT_EQUAL(int(2), solution.inorderTraversal(&root)[2]);
+}

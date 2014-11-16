@@ -11,7 +11,8 @@ class BinaryTreeTraversalTest : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST_SUITE( BinaryTreeTraversalTest );
     CPPUNIT_TEST(testPostOrderTraversal);
 	CPPUNIT_TEST(testPreOrderTraversal);
-    //CPPUNIT_TEST_EXCEPTION(test_$exception_func, exception);
+	CPPUNIT_TEST(testInOrderTraversal);
+	//CPPUNIT_TEST_EXCEPTION(test_$exception_func, exception);
     CPPUNIT_TEST_SUITE_END();
 
 public: 
@@ -20,6 +21,7 @@ public:
 
    void testPostOrderTraversal();
    void testPreOrderTraversal();
+   void testInOrderTraversal();
 
 private:
 	Solution solution;

@@ -45,6 +45,7 @@ public:
 	/*tree*/
 	vector<int> postorderTraversal(TreeNode *root);
 	vector<int> preorderTraversal(TreeNode *root);
+	vector<int> inorderTraversal(TreeNode *root);
 
 
 	/*rectangle*/
