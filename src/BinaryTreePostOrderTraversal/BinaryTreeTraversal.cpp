@@ -182,3 +182,19 @@ vector<int> Solution::inorderTraversal(TreeNode *root) {
 }
 
 
+bool Solution::compareTree(TreeNode* root1, TreeNode* root2)
+{
+	if (root1 == NULL && root2 == NULL)
+		return true;
+
+	if (
+		(root1 == NULL && root2 != NULL) ||
+		(root1 != NULL && root2 == NULL)
+		)
+		return false;
+
+	if (root1->val == root2->val)
+		return compareTree(root1->left, root2->left) && compareTree(root1->right, root2->right);
+	else
+		return false;
+}

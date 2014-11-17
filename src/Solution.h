@@ -46,6 +46,9 @@ public:
 	vector<int> postorderTraversal(TreeNode *root);
 	vector<int> preorderTraversal(TreeNode *root);
 	vector<int> inorderTraversal(TreeNode *root);
+	bool compareTree(TreeNode* root1, TreeNode* root2);
+	TreeNode* buildTreePI(vector<int> pre, vector<int> in); //preorder inorder
+	TreeNode* buildTreeIP(vector<int> in, vector<int> post); //preorder inorder
 
 
 	/*rectangle*/
