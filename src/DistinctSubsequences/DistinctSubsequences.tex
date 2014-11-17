@@ -3,9 +3,10 @@
 % dynamic programming, string
 \documentclass[UTF8]{ctexart}
 \usepackage{clrscode}
-\usepackage{amsmath, mathtools}
+\usepackage{amsmath}
 \usepackage{amsthm, enumitem}
 \usepackage{fancybox}
+\usepackage[all]{xy}
 
 \theoremstyle{remark}
 
@@ -39,23 +40,35 @@ c[i,j] =
 	\begin{cases}
 		0,& \text{if } i = 0 \text{ or } j = 0, \\
 		c[i-1, j-1], & \text{if } i,j > 0 \text{ and } x_i = y_j, \\
-		\text{max}(c[i, j-1], c[i-1, j]), & \text{if } i,j>0 \text{ and } x_i \neq y_j, 
+		\text{max}(c[i, j-1], c[i-1, j]), & \text{if } i,j>{0} \text{ and } x_i \neq y_j, 
 	\end{cases}
 \end{math}
 
 The following table illustracts the constructed $c[i,j]$ table with $X$ as \emph{``rabbit''} and $Y$ as \emph{``rabbbit''}. The arrows within will be used in the next section of reconstructing the common sequence.
 
-\begin{tabular}{rrrrrrrrrr}
-	 	& $j$	& 0	& 1	& 2	& 3	& 4	& 5	& 6	& 7	 \\ 	
-	$i$	& & $y_j$	& r	& a	& b	& b	& b	& i	& t	 \\ 	
-	$0$	& $x_i$	 & 0 & 0	& 0	& 0	& 0	& 0	& 0	& 0	 \\ 	
-	$1$	& r	& 0	&$\nwarrow$ 1	& 1	& 1	& 1	& 1	& 1	& 1	 \\ 	
-	$2$	& a	& 0	& 1	& $\nwarrow$2	&  $\leftarrow$ 2& 2		& 2	& 2	& 2	 \\ 	
-	$3$	& b & 0 & 1	& 2	&$\nwarrow$ 3	&$\lnwarrow$  3 & 3		& 3	& 3	 \\ 	
-	$4$	& b	& 0 & 1	& 2	& 3	&$\nwarrow$ 4	& $\lnwarrow$  4	&4	& 4	 \\ 	
-	$5$	& i	& 0 & 1	& 2	& 3	& 4	& 4				& $\nwarrow$ 5		& 5	 \\ 	
-	$6$	& t & 0 & 1	& 2	& 3	& 4	& 4	& 5								& $\nwarrow$ 6	 \\ 	
-
+\newcommand{\nar}[1]{\xymatrix@R=3ex@C=3ex{&\\& #1}}
+\newcommand{\lular}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[lu]\ar[l]}}
+\newcommand{\lar}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[l]}}
+\newcommand{\luar}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[lu]}}
+\newcommand\MC[1]{\multicolumn{1}{c}{#1}}
+\begin{tabular}[b]{rr|*{8}{r|}}
+	 	& \MC{$j$}& \MC{0} & \MC{1}	& \MC{2}	& \MC{3}	& \MC{4}	& \MC{5}	& \MC{6}	& \MC{7}	  \\ 	
+	$i$	& \MC{} & \MC{$y_j$}& \MC{r}	& \MC{a}	& \MC{b}	& \MC{b}	& \MC{b}	& \MC{i}	& \MC{t}	 \\ 	
+     \cline{3-10}
+	$0$	& $x_i$	 & \nar{0} & \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	 \\ 	
+     \cline{3-10}
+	$1$	& r	& \nar{0}	&\luar{1}& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	 \\ 	
+     \cline{3-10}
+	$2$	& a	& \nar{0}	& \nar{1}	& \luar{2} &  \lar{2}& \nar{2}		& \nar{2}	& \nar{2}	& \nar{2}	 \\ 	
+     \cline{3-10}
+	$3$	& b & \nar{0} & \nar{1}	& \nar{2}	&\luar{3}	&\lular{3} & \nar{3}		& \nar{3}	& \nar{3}	 \\ 	
+     \cline{3-10}
+	$4$	& b	& \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	&\luar{4}	&\lular{4}	&4	& \nar{4}	 \\ 	
+     \cline{3-10}
+	$5$	& i	& \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	& \nar{4}	& \nar{4}	& \luar{5}	& \nar{5}	 \\ 	
+     \cline{3-10}
+	$6$	& t & \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	& \nar{4}	& \nar{4}	& \nar{5}	& \luar{6}	 \\ 	
+      \cline{3-10}
 \end{tabular}
 \end{recursive}
 
