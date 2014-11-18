@@ -49,7 +49,7 @@ public:
 	bool compareTree(TreeNode* root1, TreeNode* root2);
 	TreeNode* buildTreePI(vector<int> pre, vector<int> in); //preorder inorder
 	TreeNode* buildTreeIP(vector<int> in, vector<int> post); //preorder inorder
-
+	void flatten(TreeNode* root);
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
