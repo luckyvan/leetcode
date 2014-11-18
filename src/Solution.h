@@ -10,6 +10,16 @@ struct TreeNode {
 	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+/**
+* Definition for binary tree with next pointer.
+*/
+struct TreeLinkNode {
+	int val;
+	TreeLinkNode *left, *right, *next;
+	TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+	TreeLinkNode() : val(0), left(NULL), right(NULL), next(NULL) {}
+};
+
 class Solution{
 public:
 	/* String */
@@ -50,6 +60,7 @@ public:
 	TreeNode* buildTreePI(vector<int> pre, vector<int> in); //preorder inorder
 	TreeNode* buildTreeIP(vector<int> in, vector<int> post); //preorder inorder
 	void flatten(TreeNode* root);
+	void connect(TreeLinkNode* root);
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
