@@ -61,6 +61,7 @@ public:
 	TreeNode* buildTreeIP(vector<int> in, vector<int> post); //preorder inorder
 	void flatten(TreeNode* root);
 	void connect(TreeLinkNode* root);
+	void recoverTree(TreeNode *root);
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
