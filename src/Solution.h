@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <unordered_set>
 using namespace std;
 
 
@@ -51,6 +52,8 @@ public:
 	int maxProfitWithMultipleTransactions(vector<int>& prices);
 	int maxProfitWithTwoTransactions(vector<int>& prices);
 	bool isScramble(string s1, string s2);
+	int ladderLength(string start, string end, unordered_set<string> &dict);
+	vector<vector<string> > findLadders(string start, string end, unordered_set<string> &dict);
 
 	/*tree*/
 	vector<int> postorderTraversal(TreeNode *root);
@@ -62,6 +65,7 @@ public:
 	void flatten(TreeNode* root);
 	void connect(TreeLinkNode* root);
 	void recoverTree(TreeNode *root);
+	int maxPathSum(TreeNode *root);
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
