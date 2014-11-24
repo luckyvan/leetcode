@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include <vector>
 #include <unordered_set>
 using namespace std;
@@ -20,6 +21,16 @@ struct TreeLinkNode {
 	TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
 	TreeLinkNode() : val(0), left(NULL), right(NULL), next(NULL) {}
 };
+
+struct Interval {
+	int start;
+	int end;
+	Interval() : start(0), end(0) {}
+	Interval(int s, int e) : start(s), end(e) {}
+};
+ostream& operator<<(ostream& o, const Interval& i);
+bool operator==(const Interval& i1, const Interval& i2);
+
 
 class Solution{
 public:
@@ -75,4 +86,5 @@ public:
 	int firstMissingPositive(int array[], int size);
 	int findMin(vector<int> &num);
 	int findMinWithDuplication(vector<int> &num);
+	vector<Interval> insert(vector<Interval>& intervals, Interval newInterval);
 };
