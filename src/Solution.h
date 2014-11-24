@@ -69,4 +69,7 @@ public:
 
 	/*rectangle*/
 	int largestRectangleInHistogram(vector<int>& heights);
+
+	/*array*/
+	int firstMissingPositive(int array[], int size);
 };
