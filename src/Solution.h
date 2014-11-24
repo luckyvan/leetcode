@@ -54,6 +54,7 @@ public:
 	bool isScramble(string s1, string s2);
 	int ladderLength(string start, string end, unordered_set<string> &dict);
 	vector<vector<string> > findLadders(string start, string end, unordered_set<string> &dict);
+	string minWindow(string S, string T);
 
 	/*tree*/
 	vector<int> postorderTraversal(TreeNode *root);
@@ -72,4 +73,6 @@ public:
 
 	/*array*/
 	int firstMissingPositive(int array[], int size);
+	int findMin(vector<int> &num);
+	int findMinWithDuplication(vector<int> &num);
 };
