@@ -87,4 +87,6 @@ public:
 	int findMin(vector<int> &num);
 	int findMinWithDuplication(vector<int> &num);
 	vector<Interval> insert(vector<Interval>& intervals, Interval newInterval);
+	bool canJump(int A[], int n);
+	int jump(int A[], int n);
 };
