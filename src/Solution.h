@@ -91,5 +91,6 @@ public:
 	int jump(int A[], int n);
 	vector<vector<int> > subsets(vector<int> &S);
 	vector<vector<int> > subsets_ii(vector<int> &S);
+	int longestConsecutive(vector<int> &num);
 
 };
