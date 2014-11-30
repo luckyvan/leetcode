@@ -92,5 +92,6 @@ public:
 	vector<vector<int> > subsets(vector<int> &S);
 	vector<vector<int> > subsets_ii(vector<int> &S);
 	int longestConsecutive(vector<int> &num);
+	int trap(int a[], int n);
 
 };
