@@ -4,6 +4,13 @@
 #include <unordered_set>
 using namespace std;
 
+struct Point {
+	int x;
+	int y;
+	Point() : x(0), y(0) {}
+	Point(int a, int b) : x(a), y(b) {}
+	
+};
 
 struct TreeNode {
 	int val;
@@ -28,9 +35,15 @@ struct Interval {
 	Interval() : start(0), end(0) {}
 	Interval(int s, int e) : start(s), end(e) {}
 };
+
 ostream& operator<<(ostream& o, const Interval& i);
 bool operator==(const Interval& i1, const Interval& i2);
 
+struct RandomListNode {
+	int label;
+	RandomListNode *next, *random;
+	RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+};
 
 class Solution{
 public:
@@ -95,4 +108,8 @@ public:
 	int trap(int a[], int n);
 	vector<vector<int> > threeSum(vector<int> &num);
 	vector<vector<int> > fourSum(vector<int> &num, int target);
+
+	//Hash-Table
+	RandomListNode *copyRandomList(RandomListNode *head);
+	int maxPoints(vector<Point> &points);
 };
