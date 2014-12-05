@@ -112,4 +112,8 @@ public:
 	//Hash-Table
 	RandomListNode *copyRandomList(RandomListNode *head);
 	int maxPoints(vector<Point> &points);
+
+	//Back-Track
+	vector<vector<int> > permute(vector<int> &num);
+	vector<vector<int> > permuteUnique(vector<int> &num);
 };
