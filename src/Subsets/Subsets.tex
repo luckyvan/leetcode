@@ -1,0 +1,97 @@
+%-*- coding: UTF-8 -*-
+% Subsets.tex
+% dynamic programming, string
+\documentclass[a4paper, titlepage]{article}
+\usepackage[tiny]{titlesec}
+\usepackage{clrscode}
+\usepackage{amsmath}
+\usepackage{amsthm, enumitem}
+\usepackage{fancybox}
+\usepackage[all]{xy}
+
+\begin{document}
+Given a set of integers, $S$, return all possible subsets. \\
+
+\textbf{Notation and terminology}
+
+We say that $S = \langle x_1, x_2, \dots, x_m \rangle$ is a \emph{set}, in which all $x_i$ are integers and all element placed in non-decending order, that is, $\langle x_1 \leq x_2 \leq \dots \leq x_m \rangle$.
+
+
+We say that $S'$ is a \emph{subset} of $S$, when $\forall x \in S', x \in S$.
+
+\section{Without Duplication}
+
+\section{With Duplication}
+
+\newtheorem*{problem}{Problem}
+\begin{problem}
+Given a set of distinct integers, $S$, return all possible subsets. 
+
+\emph{Note}
+Elements in a subset must be in non-descending order.
+
+The solution set must not contain duplicate sets.
+\end{problem}
+
+
+\newtheorem*{opt}{Optimal Substructure}
+\begin{opt}
+Let $X = \langle x_1, x_2, \dots, x_m \rangle$ be subsequence of $Y = \langle y_1, y_2, \dots, y_n \rangle$
+	\begin{enumerate}
+		\item if $x_m = y_n$, then $X_{m-1}$ is a subsequence of $Y_{n-1}$
+		\item if $x_m \neq y_n$, then $X$ is a subsequence of $Y_{n-1}$ 
+	\end{enumerate}
+\end{opt}
+
+\newtheorem*{recursive}{Recursive Formula}
+\begin{recursive}
+Let us define $c[i,j]$ to be the length of an \emph{longest common subsequence} of $X_i$ and $Y_j$.
+If either $i=0$ or $j=0$, one of the sequences has length 0, and so LCS has length 0. Finally, if $X_m$ is a subsequence of $Y_n$, $c[m,n] = m$.
+\begin{math}
+\\
+c[i,j] = 
+	\begin{cases}
+		0,& \text{if } i = 0 \text{ or } j = 0, \\
+		c[i-1, j-1], & \text{if } i,j > 0 \text{ and } x_i = y_j, \\
+		\text{max}(c[i, j-1], c[i-1, j]), & \text{if } i,j>{0} \text{ and } x_i \neq y_j, 
+	\end{cases}
+\end{math}
+
+The following table illustracts the constructed $c[i,j]$ table with $X$ as \emph{``rabbit''} and $Y$ as \emph{``rabbbit''}. The arrows within will be used in the next section of reconstructing the common sequence.
+
+\newcommand{\nar}[1]{\xymatrix@R=3ex@C=3ex{&\\& #1}}
+\newcommand{\lular}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[lu]\ar[l]}}
+\newcommand{\lar}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[l]}}
+\newcommand{\luar}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[lu]}}
+\newcommand\MC[1]{\multicolumn{1}{c}{#1}}
+\begin{tabular}[b]{rr|*{8}{r|}}
+	 	& \MC{$j$}& \MC{0} & \MC{1}	& \MC{2}	& \MC{3}	& \MC{4}	& \MC{5}	& \MC{6}	& \MC{7}	  \\ 	
+	$i$	& \MC{} & \MC{$y_j$}& \MC{r}	& \MC{a}	& \MC{b}	& \MC{b}	& \MC{b}	& \MC{i}	& \MC{t}	 \\ 	
+     \cline{3-10}
+	$0$	& $x_i$	 & \nar{0} & \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	 \\ 	
+     \cline{3-10}
+	$1$	& r	& \nar{0}	&\luar{1}& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	 \\ 	
+     \cline{3-10}
+	$2$	& a	& \nar{0}	& \nar{1}	& \luar{2} &  \lar{2}& \nar{2}		& \nar{2}	& \nar{2}	& \nar{2}	 \\ 	
+     \cline{3-10}
+	$3$	& b & \nar{0} & \nar{1}	& \nar{2}	&\luar{3}	&\lular{3} & \nar{3}		& \nar{3}	& \nar{3}	 \\ 	
+     \cline{3-10}
+	$4$	& b	& \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	&\luar{4}	&\lular{4}	&4	& \nar{4}	 \\ 	
+     \cline{3-10}
+	$5$	& i	& \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	& \nar{4}	& \nar{4}	& \luar{5}	& \nar{5}	 \\ 	
+     \cline{3-10}
+	$6$	& t & \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	& \nar{4}	& \nar{4}	& \nar{5}	& \luar{6}	 \\ 	
+      \cline{3-10}
+\end{tabular}
+\end{recursive}
+
+\newtheorem*{recon}{Reconstruct Solution}
+\begin{recon}
+A distinct subsequence is a distince path from $c[m,n]$ to $c[0,0]$. For instance, in our case, 
+\begin{enumerate}
+	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [4, 4] \rightarrow [3, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$ 
+	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [3, 4] \rightarrow [3, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$
+	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [3, 4] \rightarrow [2, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$
+\end{enumerate}
+\end{recon}
+\end{document}
