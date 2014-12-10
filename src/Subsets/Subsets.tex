@@ -2,46 +2,55 @@
 % Subsets.tex
 % dynamic programming, string
 \documentclass[a4paper, titlepage]{article}
-\usepackage[tiny]{titlesec}
+\usepackage[tiny]{titlesec} % set section title font
 \usepackage{clrscode}
 \usepackage{amsmath}
 \usepackage{amsthm, enumitem}
 \usepackage{fancybox}
 \usepackage[all]{xy}
 
+%theorem 
+\newtheorem{Lemma}{Lemma}
+
 \begin{document}
 Given a set of integers, $S$, return all possible subsets. \\
 
 \textbf{Notation and terminology}
 
-We say that $S = \langle x_1, x_2, \dots, x_m \rangle$ is a \emph{set}, in which all $x_i$ are integers and all element placed in non-decending order, that is, $\langle x_1 \leq x_2 \leq \dots \leq x_m \rangle$.
+We say that $S = \langle x_1, x_2, \dots, x_n \rangle$ is a \emph{set}, in which all $x_i$ are integers and all element placed in non-decending order, that is, $ x_1 \leq x_2 \leq \dots \leq x_n $.
 
 
-We say that $S'$ is a \emph{subset} of $S$, when $\forall x \in S', x \in S$.
-
-\section{Without Duplication}
-
-\section{With Duplication}
-
-\newtheorem*{problem}{Problem}
-\begin{problem}
-Given a set of distinct integers, $S$, return all possible subsets. 
-
-\emph{Note}
-Elements in a subset must be in non-descending order.
-
-The solution set must not contain duplicate sets.
-\end{problem}
+We say that $S'$ is a \emph{subset} of $S$, when $\forall x \in S', x \in S$. In another word,
 
 
-\newtheorem*{opt}{Optimal Substructure}
-\begin{opt}
-Let $X = \langle x_1, x_2, \dots, x_m \rangle$ be subsequence of $Y = \langle y_1, y_2, \dots, y_n \rangle$
-	\begin{enumerate}
-		\item if $x_m = y_n$, then $X_{m-1}$ is a subsequence of $Y_{n-1}$
-		\item if $x_m \neq y_n$, then $X$ is a subsequence of $Y_{n-1}$ 
-	\end{enumerate}
-\end{opt}
+$S' = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which, $i_1 < i_2 < \dots < i_m \leq n$.
+
+
+\section{$S$ Without Duplicate Elements}
+When $S$ is a set without duplication elements, all elements are in ascending order:
+\[
+ x_1 < x_2 < \dots < x_n 
+\]
+
+The following defines a new set with all possible sets containing only the first k elements of $S$.
+
+SUBSETS($S,k$) = \{$\sigma | \sigma = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which $ i_1 < i_2 < \dots < i_m \leq k \leq n$\}
+
+\begin{Lemma}
+SUBSETS($S, k+1$) - SUBSETS($S, k$) = \{$\sigma' | \sigma' = \sigma \cup \{x_{k+1}\}, \sigma \in$ SUBSETS($S, k$)\}
+\end{Lemma}
+\begin{proof}
+For $\forall \gamma \in$ SUBSETS($S, k+1$), $\gamma = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which $ i_1 < i_2 < \dots < i_m \leq k + 1 \leq n$.
+
+If $i_m \neq k+1$, then $x_{i_m} \neq x_{k+1}$. Because $x_k \neq x_{k+1}$, $\gamma \in$ SUBSETS($S, k$).
+
+If $i_m = k+1$, then $x_{i_m} = x_{k+1}$. Because $x_{i_{m-1}} \neq x_{k+1}$, then $\langle x_{i_1}, x_{i_2}, \dots, x_{i_{m-1}}\rangle \in$ SUBSETS($S, k$). 
+
+\end{proof}
+		
+\section{$S$ With Duplicate Elements}
+
+
 
 \newtheorem*{recursive}{Recursive Formula}
 \begin{recursive}
