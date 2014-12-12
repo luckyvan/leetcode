@@ -6,8 +6,7 @@
 \usepackage{clrscode}
 \usepackage{amsmath}
 \usepackage{amsthm, enumitem}
-\usepackage{fancybox}
-\usepackage[all]{xy}
+
 
 %theorem 
 \newtheorem{Lemma}{Lemma}
@@ -21,10 +20,15 @@ We say that $S = \langle x_1, x_2, \dots, x_n \rangle$ is a \emph{set}, in which
 
 
 We say that $S'$ is a \emph{subset} of $S$, when $\forall x \in S', x \in S$. In another word,
-
-
 $S' = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which, $i_1 < i_2 < \dots < i_m \leq n$.
 
+We defines a new set with all possible sets containing only the first \emph{k} elements of $S$.
+
+SUBSETS($S,k$) = \{$\sigma | \sigma = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which $ i_1 < i_2 < \dots < i_m \leq k \leq n$\}
+
+Then our recursive method relies on how to figure out how to calculate the $difference$ of SUBSETS($S, k$), that is,
+
+$\Delta$SUBSETS($S,k$) = SUBSETS($S, k+1$) - SUBSETS($S, k$)
 
 \section{$S$ Without Duplicate Elements}
 When $S$ is a set without duplication elements, all elements are in ascending order:
@@ -32,75 +36,89 @@ When $S$ is a set without duplication elements, all elements are in ascending or
  x_1 < x_2 < \dots < x_n 
 \]
 
-The following defines a new set with all possible sets containing only the first k elements of $S$.
 
-SUBSETS($S,k$) = \{$\sigma | \sigma = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which $ i_1 < i_2 < \dots < i_m \leq k \leq n$\}
-
-\begin{Lemma}
-SUBSETS($S, k+1$) - SUBSETS($S, k$) = \{$\sigma' | \sigma' = \sigma \cup \{x_{k+1}\}, \sigma \in$ SUBSETS($S, k$)\}
+\begin{Lemma}\label{lemma: without dup}
+$\Delta$ \textup{SUBSETS}($S, k$) = \{$\sigma' | \sigma' = \sigma \cup \{x_{k+1}\}, \sigma \in$ \textup{SUBSETS}($S, k$)\}
 \end{Lemma}
 \begin{proof}
 For $\forall \gamma \in$ SUBSETS($S, k+1$), $\gamma = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which $ i_1 < i_2 < \dots < i_m \leq k + 1 \leq n$.
+$\gamma$ can fall into the following two categories.
 
-If $i_m \neq k+1$, then $x_{i_m} \neq x_{k+1}$. Because $x_k \neq x_{k+1}$, $\gamma \in$ SUBSETS($S, k$).
+\begin{enumerate}
+\item If $i_m \neq k+1$, then $x_{i_m} \neq x_{k+1}$. Because $x_k \neq x_{k+1}$, $\gamma \in$ SUBSETS($S, k$).
 
-If $i_m = k+1$, then $x_{i_m} = x_{k+1}$. Because $x_{i_{m-1}} \neq x_{k+1}$, then $\langle x_{i_1}, x_{i_2}, \dots, x_{i_{m-1}}\rangle \in$ SUBSETS($S, k$). 
-
+\item If $i_m = k+1$, then $x_{i_m} = x_{k+1}$. Because $x_{i_{m-1}} \neq x_{k+1}$, then $\langle x_{i_1}, x_{i_2}, \dots, x_{i_{m-1}}\rangle \in$ SUBSETS($S, k$). 
+\end{enumerate}
 \end{proof}
+
+From the Lemma \ref{lemma: without dup}, we now have the following algorithm:
+
+\begin{codebox}
+\Procname{$\proc{SUBSETS-WITHOUT-DUPLICATION($S$)}$}
+\li $\proc{sort}(S)$
+\li $n \gets length(S)$
+\li $e \gets empty\ array$ //SUBSETS($S, 0$)
+\li $subsets = \{e\}$
+\li \For $i \gets 1$ \To $n$
+\li 	\Do $subsets \gets subsets + \proc{difference}(subsets, S[i])$
+       \End
+\li \Return{$subsets$}
+\end{codebox}
+
+\begin{codebox}
+\Procname{$\proc{DIFFERENCE($subsets, new\_elem$)}$}
+\li $n \gets length(subsets)$
+\li $subsets' \gets \{\}$
+\li \For $i \gets 1$ \To $n$
+\li 	\Do $subset' \gets subsets[i] + \{new\_elem\}$
+\li 		$subsets' \gets subsets' + \{subset'\}$ 
+		\End
+\li \Return {$subsets'$}
+\end{codebox}
 		
 \section{$S$ With Duplicate Elements}
+When $S$ is a set without duplication elements, all elements are in non-descending order:
+\[
+ x_1 \leq x_2 \leq \dots \leq x_n 
+\]
 
+Unlike Lemma \ref{lemma: without dup}, from current $S$, $(i_m < k \leq n) \not\Rightarrow (x_{i_m} \neq x_k)$. 
 
+\begin{Lemma}\label{lemma: with dup}
+With Duplication,
+\[
+\Delta \textup{SUBSETS(}S, k\textup{)} = \begin{cases}
+\{\sigma' | x_k \neq x_{k+1}, \textup{then } \sigma' = \sigma \cup \{x_{k+1}\}, \sigma \in \textup{SUBSETS(}S, k\textup{)}\};  \\
+\{\sigma' | x_k = x_{k+1}, \textup{then } \sigma' = \sigma \cup \{x_{k+1}\}, \sigma \in \Delta \textup{SUBSETS(}S, k - 1\textup{)} \}.
+\end{cases}
+\]
+\end{Lemma}
+\begin{proof}
+For $\forall \gamma \in$ SUBSETS($S, k+1$), $\gamma = \langle x_{i_1}, x_{i_2}, \dots, x_{i_m} \rangle$, in which $ i_1 < i_2 < \dots < i_m \leq k + 1 \leq n$.
+When $x_k \neq x_{k+1}$, the discussion of lemma \ref{lemma: without dup} remains valid, so as the 1st part of lemma \ref{lemma: with dup}.
 
-\newtheorem*{recursive}{Recursive Formula}
-\begin{recursive}
-Let us define $c[i,j]$ to be the length of an \emph{longest common subsequence} of $X_i$ and $Y_j$.
-If either $i=0$ or $j=0$, one of the sequences has length 0, and so LCS has length 0. Finally, if $X_m$ is a subsequence of $Y_n$, $c[m,n] = m$.
-\begin{math}
-\\
-c[i,j] = 
-	\begin{cases}
-		0,& \text{if } i = 0 \text{ or } j = 0, \\
-		c[i-1, j-1], & \text{if } i,j > 0 \text{ and } x_i = y_j, \\
-		\text{max}(c[i, j-1], c[i-1, j]), & \text{if } i,j>{0} \text{ and } x_i \neq y_j, 
-	\end{cases}
-\end{math}
+When $x_k = x_{k+1}$, let's say $x_j$ is the last element less than $x_{k+1}$, then SUBSETS($S, j$)  contains all subsets without any $x_{k+1}$. $\Delta\textup{SUBSETS(}S, j\textup{)}$ should be all subsets with exactly 1 $x_{k+1}$. $\Delta\textup{SUBSETS(}S, j+1\textup{)}$ should be all subsets with exactly 2 $x_{k+1}$. 
 
-The following table illustracts the constructed $c[i,j]$ table with $X$ as \emph{``rabbit''} and $Y$ as \emph{``rabbbit''}. The arrows within will be used in the next section of reconstructing the common sequence.
+For $\alpha \in \Delta\textup{SUBSETS(}S, j+1\textup{)}$, let $\alpha'$ be the subset that deduced by getting rid of last element from $\alpha$, then $\alpha' \in \Delta\textup{SUBSETS(}S, j\textup{)}$. Backwards, $\forall \alpha' \in \Delta\textup{SUBSETS(}S, j\textup{)}, \alpha' + \{x_{j+1}\} \in \Delta\textup{SUBSETS(}S, j+1\textup{)}$. From inducation, this applies to the rest element equal to $x_{k+1}$, hence we prove the 2nd part.
+\end{proof}
 
-\newcommand{\nar}[1]{\xymatrix@R=3ex@C=3ex{&\\& #1}}
-\newcommand{\lular}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[lu]\ar[l]}}
-\newcommand{\lar}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[l]}}
-\newcommand{\luar}[1]{\xymatrix@R=3ex@C=3ex{&\\ & #1 \ar[lu]}}
-\newcommand\MC[1]{\multicolumn{1}{c}{#1}}
-\begin{tabular}[b]{rr|*{8}{r|}}
-	 	& \MC{$j$}& \MC{0} & \MC{1}	& \MC{2}	& \MC{3}	& \MC{4}	& \MC{5}	& \MC{6}	& \MC{7}	  \\ 	
-	$i$	& \MC{} & \MC{$y_j$}& \MC{r}	& \MC{a}	& \MC{b}	& \MC{b}	& \MC{b}	& \MC{i}	& \MC{t}	 \\ 	
-     \cline{3-10}
-	$0$	& $x_i$	 & \nar{0} & \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	& \nar{0}	 \\ 	
-     \cline{3-10}
-	$1$	& r	& \nar{0}	&\luar{1}& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	& \nar{1}	 \\ 	
-     \cline{3-10}
-	$2$	& a	& \nar{0}	& \nar{1}	& \luar{2} &  \lar{2}& \nar{2}		& \nar{2}	& \nar{2}	& \nar{2}	 \\ 	
-     \cline{3-10}
-	$3$	& b & \nar{0} & \nar{1}	& \nar{2}	&\luar{3}	&\lular{3} & \nar{3}		& \nar{3}	& \nar{3}	 \\ 	
-     \cline{3-10}
-	$4$	& b	& \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	&\luar{4}	&\lular{4}	&4	& \nar{4}	 \\ 	
-     \cline{3-10}
-	$5$	& i	& \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	& \nar{4}	& \nar{4}	& \luar{5}	& \nar{5}	 \\ 	
-     \cline{3-10}
-	$6$	& t & \nar{0} & \nar{1}	& \nar{2}	& \nar{3}	& \nar{4}	& \nar{4}	& \nar{5}	& \luar{6}	 \\ 	
-      \cline{3-10}
-\end{tabular}
-\end{recursive}
+From the Lemma \ref{lemma: with dup}, we now have the following algorithm:
 
-\newtheorem*{recon}{Reconstruct Solution}
-\begin{recon}
-A distinct subsequence is a distince path from $c[m,n]$ to $c[0,0]$. For instance, in our case, 
-\begin{enumerate}
-	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [4, 4] \rightarrow [3, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$ 
-	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [3, 4] \rightarrow [3, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$
-	\item $[6,7] \rightarrow [5, 6] \rightarrow [4, 5] \rightarrow [3, 4] \rightarrow [2, 3] \rightarrow [2, 2] \rightarrow [1, 1] \rightarrow [0,0]$
-\end{enumerate}
-\end{recon}
+\begin{codebox}
+\Procname{$\proc{SUBSETS-WITH-DUPLICATION($S$)}$}
+\li $\proc{sort}(S)$
+\li $n \gets length(S)$
+\li $e \gets empty\ array$ //SUBSETS($S, 0$)
+\li $subsets \gets \{e\}$
+\li $diffs \gets {}$
+\li \For $i \gets 1$ \To $n$
+\li 	\Do 
+\li 	\If $i = 1$ or $S[i] \neq S[i-1]$
+\li 		\Then $diffs[i] \gets \proc{difference}(subsets, S[i])$
+\li 		\Else $diffs[i] \gets \proc{difference}(diffs[i-1], S[i])$
+			\End
+\li 	$subsets \gets subsets + diffs[i]$
+       \End
+\li \Return{$subsets$}
+\end{codebox}
 \end{document}
