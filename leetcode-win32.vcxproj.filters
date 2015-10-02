@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\AtoiTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\BestTimeToBuyAndSellStockTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\BinaryTreeTraversalTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\DistinctSubsequencesTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\EditDistanceTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\FindMinimumInRotatedSortedArrayTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\FirstMissingPositiveTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\FlattenBinaryTreeToLinkedListTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\GenerateParenthesesTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\InsertIntervalTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\InterleavingStringTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\JumpGameTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\LargestRectangleInHistogramTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\LongestCommonPrefixTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\LongestConsecutiveSequenceTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\LongestSubstringWithoutRepeatingCharactersTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\LongestValidParenthesesTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\MaximumSubarrayTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\MaxPointsOnALineTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\MinimumWindowSubstringTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\NSumTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\PermutationTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\PopulatingNextRightPointerInEachNodeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\RecoverBinarySearchTreeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\RegularExpressionMatchingTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ReverseWordsTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\RomanIntegerConversionTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ScrambleStringTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\StrStrTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\SubsetTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\TrappingRainWaterTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\UniquePathsTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ValidParenthesesTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\WordLadderTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ZigZagConversionTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Solution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\LongestCommonPrefixTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\AtoiTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\RomanIntegerConversionTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\ValidParenthesesTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\ZigZagConversionTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\BestTimeToBuyAndSellStockTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\BinaryTreeTraversalTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\DistinctSubsequencesTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\EditDistanceTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\FindMinimumInRotatedSortedArrayTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\FirstMissingPositiveTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\FlattenBinaryTreeToLinkedListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\GenerateParenthesesTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\InsertIntervalTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\InterleavingStringTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\JumpGameTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\LargestRectangleInHistogramTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\LongestConsecutiveSequenceTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\LongestSubstringWithoutRepeatingCharactersTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\LongestValidParenthesesTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\MaximumSubarrayTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\MaxPointsOnALineTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\MinimumWindowSubstringTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\NSumTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\PermutationTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\PopulatingNextRightPointerInEachNodeTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\RecoverBinarySearchTreeTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\RegularExpressionMatchingTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\ReverseWordsTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\ScrambleStringTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\StrStrTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\SubsetTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\TrappingRainWaterTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\UniquePathsTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\WordLadderTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Atoi\Atoi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WordLadder\WordLadder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BestTimeToBuyAndSellStock\BestTimeToBuyAndSellStock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BinaryTreeMaximumPathSum\BinaryTreeMaximumPathSum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BinaryTreePostOrderTraversal\BinaryTreeTraversal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ConstructBinaryTree\ConstructBinaryTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CopyListWithRandomPointer\CopyListWithRandomPointer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DistinctSubsequences\DistinctSubsequences.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditDistance\EditDistance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FindMinimumInRotatedSortedArray\FindMinimumInRotatedSortedArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FirstMissingPositive\FirstMissingPositive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FlatternBinaryTreeToLinkedList\FlattenBinaryTreeToLinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GenerateParentheses\GenerateParentheses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InsertInterval\InsertInterval.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InterleavingString\InterleavingString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JumpGame\JumpGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LargestRectangleInHistogram\LargestRectangleInHistogram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongestCommonPrefix\LongestCommonPrefix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongestConsecutiveSequence\LongestConsecutiveSequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongestSubstringWithoutRepeatingCharacters\longestSubstringWithoutRepeatingCharacters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongestValidParentheses\LongestValidParentheses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MaximumSubarray\MaximumSubArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MaxPointsOnALine\MaxPointsOnALine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MinimumWindowSubstring\MinimumWindowSubstring.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NSum\NSum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Permutations\Permutations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PopulatingNextRightPointersInEachNode\PopulatingNextRightPointersInEachNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RecoverBinarySearchTree\RecoverBinarySearchTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RegularExpressionMatching\RegularExpressionMatching.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ReverseWords\ReverseWords.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RomanIntegerConversion\RomanIntegerConversion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScrambleString\ScrambleString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StrStr\strStr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Subsets\Subsets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TrappingRainWater\TrappingRainWater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UniquePaths\UniquePaths.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UniquePathsWithObstacles\UniquePathsWithObstacles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ValidParentheses\ValidParentheses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ZigZagConversion\ZigZagConversion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\MainTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

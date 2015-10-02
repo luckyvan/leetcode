@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DD171A66-928E-4B64-9C22-D771E07EF0F4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>leetcodewin32</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\cppunit-1.12.1\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cppunit.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Solution.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="test\AtoiTest.h" />
+    <ClInclude Include="test\BestTimeToBuyAndSellStockTest.h" />
+    <ClInclude Include="test\BinaryTreeTraversalTest.h" />
+    <ClInclude Include="test\DistinctSubsequencesTest.h" />
+    <ClInclude Include="test\EditDistanceTest.h" />
+    <ClInclude Include="test\FindMinimumInRotatedSortedArrayTest.h" />
+    <ClInclude Include="test\FirstMissingPositiveTest.h" />
+    <ClInclude Include="test\FlattenBinaryTreeToLinkedListTest.h" />
+    <ClInclude Include="test\GenerateParenthesesTest.h" />
+    <ClInclude Include="test\InsertIntervalTest.h" />
+    <ClInclude Include="test\InterleavingStringTest.h" />
+    <ClInclude Include="test\JumpGameTest.h" />
+    <ClInclude Include="test\LargestRectangleInHistogramTest.h" />
+    <ClInclude Include="test\LongestCommonPrefixTest.h" />
+    <ClInclude Include="test\LongestConsecutiveSequenceTest.h" />
+    <ClInclude Include="test\LongestSubstringWithoutRepeatingCharactersTest.h" />
+    <ClInclude Include="test\LongestValidParenthesesTest.h" />
+    <ClInclude Include="test\MaximumSubarrayTest.h" />
+    <ClInclude Include="test\MaxPointsOnALineTest.h" />
+    <ClInclude Include="test\MinimumWindowSubstringTest.h" />
+    <ClInclude Include="test\NSumTest.h" />
+    <ClInclude Include="test\PermutationTest.h" />
+    <ClInclude Include="test\PopulatingNextRightPointerInEachNodeTest.h" />
+    <ClInclude Include="test\RecoverBinarySearchTreeTest.h" />
+    <ClInclude Include="test\RegularExpressionMatchingTest.h" />
+    <ClInclude Include="test\ReverseWordsTest.h" />
+    <ClInclude Include="test\RomanIntegerConversionTest.h" />
+    <ClInclude Include="test\ScrambleStringTest.h" />
+    <ClInclude Include="test\StrStrTest.h" />
+    <ClInclude Include="test\SubsetTest.h" />
+    <ClInclude Include="test\TrappingRainWaterTest.h" />
+    <ClInclude Include="test\UniquePathsTest.h" />
+    <ClInclude Include="test\ValidParenthesesTest.h" />
+    <ClInclude Include="test\WordLadderTest.h" />
+    <ClInclude Include="test\ZigZagConversionTest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Atoi\Atoi.cpp" />
+    <ClCompile Include="src\BestTimeToBuyAndSellStock\BestTimeToBuyAndSellStock.cpp" />
+    <ClCompile Include="src\BinaryTreeMaximumPathSum\BinaryTreeMaximumPathSum.cpp" />
+    <ClCompile Include="src\BinaryTreePostOrderTraversal\BinaryTreeTraversal.cpp" />
+    <ClCompile Include="src\ConstructBinaryTree\ConstructBinaryTree.cpp" />
+    <ClCompile Include="src\CopyListWithRandomPointer\CopyListWithRandomPointer.cpp" />
+    <ClCompile Include="src\DistinctSubsequences\DistinctSubsequences.cpp" />
+    <ClCompile Include="src\EditDistance\EditDistance.cpp" />
+    <ClCompile Include="src\FindMinimumInRotatedSortedArray\FindMinimumInRotatedSortedArray.cpp" />
+    <ClCompile Include="src\FirstMissingPositive\FirstMissingPositive.cpp" />
+    <ClCompile Include="src\FlatternBinaryTreeToLinkedList\FlattenBinaryTreeToLinkedList.cpp" />
+    <ClCompile Include="src\GenerateParentheses\GenerateParentheses.cpp" />
+    <ClCompile Include="src\InsertInterval\InsertInterval.cpp" />
+    <ClCompile Include="src\InterleavingString\InterleavingString.cpp" />
+    <ClCompile Include="src\JumpGame\JumpGame.cpp" />
+    <ClCompile Include="src\LargestRectangleInHistogram\LargestRectangleInHistogram.cpp" />
+    <ClCompile Include="src\LongestCommonPrefix\LongestCommonPrefix.cpp" />
+    <ClCompile Include="src\LongestConsecutiveSequence\LongestConsecutiveSequence.cpp" />
+    <ClCompile Include="src\LongestSubstringWithoutRepeatingCharacters\longestSubstringWithoutRepeatingCharacters.cpp" />
+    <ClCompile Include="src\LongestValidParentheses\LongestValidParentheses.cpp" />
+    <ClCompile Include="src\MaximumSubarray\MaximumSubArray.cpp" />
+    <ClCompile Include="src\MaxPointsOnALine\MaxPointsOnALine.cpp" />
+    <ClCompile Include="src\MinimumWindowSubstring\MinimumWindowSubstring.cpp" />
+    <ClCompile Include="src\NSum\NSum.cpp" />
+    <ClCompile Include="src\Permutations\Permutations.cpp" />
+    <ClCompile Include="src\PopulatingNextRightPointersInEachNode\PopulatingNextRightPointersInEachNode.cpp" />
+    <ClCompile Include="src\RecoverBinarySearchTree\RecoverBinarySearchTree.cpp" />
+    <ClCompile Include="src\RegularExpressionMatching\RegularExpressionMatching.cpp" />
+    <ClCompile Include="src\ReverseWords\ReverseWords.cpp" />
+    <ClCompile Include="src\RomanIntegerConversion\RomanIntegerConversion.cpp" />
+    <ClCompile Include="src\ScrambleString\ScrambleString.cpp" />
+    <ClCompile Include="src\StrStr\strStr.cpp" />
+    <ClCompile Include="src\Subsets\Subsets.cpp" />
+    <ClCompile Include="src\TrappingRainWater\TrappingRainWater.cpp" />
+    <ClCompile Include="src\UniquePathsWithObstacles\UniquePathsWithObstacles.cpp" />
+    <ClCompile Include="src\UniquePaths\UniquePaths.cpp" />
+    <ClCompile Include="src\ValidParentheses\ValidParentheses.cpp" />
+    <ClCompile Include="src\WordLadder\WordLadder.cpp" />
+    <ClCompile Include="src\ZigZagConversion\ZigZagConversion.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="test\AtoiTest.cpp" />
+    <ClCompile Include="test\BestTimeToBuyAndSellStockTest.cpp" />
+    <ClCompile Include="test\BinaryTreeTraversalTest.cpp" />
+    <ClCompile Include="test\DistinctSubsequencesTest.cpp" />
+    <ClCompile Include="test\EditDistanceTest.cpp" />
+    <ClCompile Include="test\FindMinimumInRotatedSortedArrayTest.cpp" />
+    <ClCompile Include="test\FirstMissingPositiveTest.cpp" />
+    <ClCompile Include="test\FlattenBinaryTreeToLinkedListTest.cpp" />
+    <ClCompile Include="test\GenerateParenthesesTest.cpp" />
+    <ClCompile Include="test\InsertIntervalTest.cpp" />
+    <ClCompile Include="test\InterleavingStringTest.cpp" />
+    <ClCompile Include="test\JumpGameTest.cpp" />
+    <ClCompile Include="test\LargestRectangleInHistogramTest.cpp" />
+    <ClCompile Include="test\LongestCommonPrefixTest.cpp" />
+    <ClCompile Include="test\LongestConsecutiveSequenceTest.cpp" />
+    <ClCompile Include="test\LongestSubstringWithoutRepeatingCharactersTest.cpp" />
+    <ClCompile Include="test\LongestValidParenthesesTest.cpp" />
+    <ClCompile Include="test\MainTest.cpp" />
+    <ClCompile Include="test\MaximumSubarrayTest.cpp" />
+    <ClCompile Include="test\MaxPointsOnALineTest.cpp" />
+    <ClCompile Include="test\MinimumWindowSubstringTest.cpp" />
+    <ClCompile Include="test\NSumTest.cpp" />
+    <ClCompile Include="test\PermutationTest.cpp" />
+    <ClCompile Include="test\PopulatingNextRightPointerInEachNodeTest.cpp" />
+    <ClCompile Include="test\RecoverBinarySearchTreeTest.cpp" />
+    <ClCompile Include="test\RegularExpressionMatchingTest.cpp" />
+    <ClCompile Include="test\ReverseWordsTest.cpp" />
+    <ClCompile Include="test\RomanIntegerConversionTest.cpp" />
+    <ClCompile Include="test\ScrambleStringTest.cpp" />
+    <ClCompile Include="test\StrStrTest.cpp" />
+    <ClCompile Include="test\SubsetTest.cpp" />
+    <ClCompile Include="test\TrappingRainWaterTest.cpp" />
+    <ClCompile Include="test\UniquePathsTest.cpp" />
+    <ClCompile Include="test\ValidParenthesesTest.cpp" />
+    <ClCompile Include="test\WordLadderTest.cpp" />
+    <ClCompile Include="test\ZigZagConversionTest.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
